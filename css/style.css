@@ -47,9 +47,17 @@ img {
   gap: 2rem;
 }
 #board {
-  display: grid;
   width: min(70vh, 70%);
   max-width: 400px;
   background-color: rgb(170, 167, 167);
   aspect-ratio: 1/1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.board-square {
+  background-color: gold;
+  box-sizing: border-box;
+  outline: 8px solid rgb(17, 17, 16);
 }

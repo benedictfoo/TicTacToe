@@ -4,13 +4,15 @@
 4.Width min(70vh, 70%);
 5.Max width 400px
 6.**Use height of viewport and set height instead and unset width max-width***
-7.game div centers board though flex and align content
+7.game div centers board though flex and align content              
 8.game div height is 100vh
 
+9.Grid-template-columns repeat(3,1fr)
+10.Board-squares aspect-ratio 1/1
+11.Make a board of board-squares 3X3.
+12.Give square a  class and instead
+13.Style with class
 DONE THOSE^^^
 
-6.Make a board of board-squares 3X3.
-7.board-squares aspect-ratio 1/1
-8.Grid-template-columns repeat(3,1fr)
 
 
