@@ -1,5 +1,7 @@
-1.Normalize
+1.Normalize 
 2.Add some defaults
+ 
+DONE THOSE^^^
 
 1.There is a grid container(board) holding it
 2.Width 90%
