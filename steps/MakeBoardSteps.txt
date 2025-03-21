@@ -1,13 +1,14 @@
 1.Normalize 
 2.Add some defaults
- 
+3.There is a grid container(board) holding it
+4.Width min(70vh, 70%);
+5.Max width 400px
+6.**Use height of viewport and set height instead and unset width max-width***
+7.game div centers board though flex and align content
+8.game div height is 100vh
+
 DONE THOSE^^^
 
-1.There is a grid container(board) holding it
-2.Width 90%
-3.Max width 600px
-4.body centers board though flex 
-5.body min-height is 100vh
 6.Make a board of board-squares 3X3.
 7.board-squares aspect-ratio 1/1
 8.Grid-template-columns repeat(3,1fr)

@@ -34,3 +34,22 @@ img {
   display: block;
   max-inline-size: 100%;
 }
+
+/* Board */
+
+.game {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+}
+#board {
+  display: grid;
+  width: min(70vh, 70%);
+  max-width: 400px;
+  background-color: rgb(170, 167, 167);
+  aspect-ratio: 1/1;
+}
