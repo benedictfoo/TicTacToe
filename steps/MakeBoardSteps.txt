@@ -29,5 +29,5 @@
 25. Game should display winner or draw at end
 DONE THOSE^^^
 
-
+26.Style the frontend winning message and also link it to logic
 

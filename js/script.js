@@ -11,6 +11,7 @@
 })();
 (function () {
   let turnCount = 0;
+  // set message
 
   // Click Event
   const boardElement = document.querySelector("#board");
@@ -21,7 +22,9 @@
         turnCount++;
         target.dataset.value = turnCount % 2 === 1 ? "X" : "O";
       }
-      checkIfWon();
+      const message = checkIfWon();
+      const gameStatusElement = document.querySelector(".game-status");
+      gameStatusElement.textContent = message;
     }
   });
   // Array of winning
@@ -56,11 +59,12 @@
         first === second &&
         first === third
       ) {
-        return `Player ${first === "X" ? "1" : "2"} won!`;
-      }
-      if (turnCount === 9) {
-        return "There is no winner...";
+        return `Player ${first === "X" ? "X" : "O"} won!`;
       }
     }
+    if (turnCount === 9) {
+      return "There is no winner...";
+    }
+    return `${turnCount % 2 === 0 ? "X" : "O"}'s turn.`;
   }
 })();
