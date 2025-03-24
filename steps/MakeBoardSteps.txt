@@ -19,8 +19,10 @@
 17.Square needs to set based on game object turn variable
 18.Game first turn is player 1 ('x')
 
+19.Font icons for x and o
+20.Clicking square shows x or o
 DONE THOSE^^^
-19.Game needs to have logic for winning
+20.Game needs to have logic for winning
 
 
 

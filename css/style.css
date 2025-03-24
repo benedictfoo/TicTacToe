@@ -54,10 +54,25 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  --square-border: 8px solid rgb(17, 17, 16);
+  border: var(--square-border);
 }
 
 .board-square {
   background-color: gold;
   box-sizing: border-box;
-  outline: 8px solid rgb(17, 17, 16);
+  border: var(--square-border);
+}
+
+.board-square[data-value="X"] {
+  background-image: url("../img/X.svg");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.board-square[data-value="O"] {
+  background-image: url("../img/O.svg");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
