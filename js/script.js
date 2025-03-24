@@ -10,10 +10,19 @@
   }
 })();
 const createGame = function () {
+  let player1Name, player2Name;
   let turnCount = 0;
+  let restart = false;
+
+  const startButton = document.querySelector(".start-button");
+  const player1Input = document.querySelector("#player-1-name");
+  const player2Input = document.querySelector("#player-2-name");
+  const boardElement = document.querySelector("#board");
+  const gameStatusElement = document.querySelector(".game-status");
+  const squares = document.querySelectorAll(".board-square");
+  const gameNames = document.querySelectorAll(".game-name");
 
   // Click Event
-  const boardElement = document.querySelector("#board");
   boardElement.addEventListener("click", (e) => {
     const target = e.target;
     if (target.classList.contains("board-square")) {
@@ -21,10 +30,42 @@ const createGame = function () {
         turnCount++;
         target.dataset.value = turnCount % 2 === 1 ? "X" : "O";
       }
-      const message = checkIfWon();
-      const gameStatusElement = document.querySelector(".game-status");
-      gameStatusElement.textContent = message;
+      const statusName = checkStatus();
+      if ([player1Name, player2Name].includes(statusName)) {
+        gameStatusElement.textContent = `${statusName} won the game!`;
+        restart = true;
+      } else if (statusName === "draw") {
+        gameStatusElement.textContent = "It's a draw";
+        restart = true;
+      } else {
+        showMessage();
+      }
+      if (
+        [player1Name, player2Name].includes(statusName) ||
+        statusName === "draw"
+      ) {
+        toggleStart();
+      }
     }
+  });
+  // Start Event
+  startButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    player1Name = player1Input.value || "X";
+    player2Name = player2Input.value || "O";
+    if (!restart) {
+      toggleInput();
+      toggleBoard();
+    }
+    if (restart) {
+      startButton.textContent = "Restart";
+      turnCount = 0;
+      squares.forEach((square) => {
+        square.dataset.value = "";
+      });
+    }
+    toggleStart();
+    showMessage();
   });
   // Array of winning
   const winArray = [
@@ -38,8 +79,7 @@ const createGame = function () {
     [3, 5, 7],
   ];
   // function to check if won
-  function checkIfWon() {
-    const squares = document.querySelectorAll(".board-square");
+  function checkStatus() {
     function getSquareValue(oneIndex) {
       return squares[oneIndex - 1].dataset.value;
     }
@@ -55,29 +95,33 @@ const createGame = function () {
         first === second &&
         first === third
       ) {
-        initialize();
-        return `Player ${first === "X" ? "X" : "O"} won!`;
+        return first === "X" ? player1Name : player2Name;
       }
     }
     if (turnCount === 9) {
-      initialize();
-      return "There is no winner...";
+      return "draw";
     }
-    return `${turnCount % 2 === 0 ? "X" : "O"}'s turn.`;
+    return false;
   }
-  function initialize(firstTime) {
-    const gameStatusElement = document.querySelector(".game-status");
-    gameStatusElement.textContent = `X's turn.`;
-    turnCount = 0;
-    if (!firstTime) {
-      const boardSquares = document.querySelectorAll(".board-square");
-      boardSquares.forEach((square) => {
-        square.dataset.value = "";
-      });
-    }
+  function toggleBoard() {
+    boardElement.classList.toggle("hidden");
   }
-  return { initialize };
+  function toggleInput() {
+    gameNames.forEach((name) => {
+      name.classList.toggle("hidden");
+    });
+  }
+  function toggleStart() {
+    startButton.classList.toggle("hidden");
+  }
+  function showMessage() {
+    gameStatusElement.textContent = `${
+      turnCount % 2 === 0 ? player1Name : player2Name
+    }'s turn.`;
+  }
+
+  toggleBoard();
 };
 const game = createGame();
 
-game.initialize(true);
+// game.initialize(true);
