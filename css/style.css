@@ -45,6 +45,7 @@ img {
   justify-content: start;
 }
 #board {
+  --spacing: 8px;
   width: min(70vh, 70%);
   max-width: 400px;
   background-color: rgb(170, 167, 167);
@@ -52,14 +53,14 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  --square-border: 8px solid rgb(17, 17, 16);
-  border: var(--square-border);
+  padding: var(--spacing);
+  gap: var(--spacing);
+  background-color: rgb(17, 17, 16);
 }
 
 .board-square {
   background-color: gold;
   box-sizing: border-box;
-  border: var(--square-border);
 }
 
 .board-square[data-value="X"] {

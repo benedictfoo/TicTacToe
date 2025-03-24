@@ -29,6 +29,7 @@
 25. Game should display winner or draw at end
 26.Style the frontend winning message and also link it to logic
 27.Initializing game works
+28. Refactor Code
 DONE THOSE^^^
 
 
