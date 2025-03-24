@@ -12,7 +12,15 @@
 11.Make a board of board-squares 3X3.
 12.Give square a  class and instead
 13.Style with class
+14.Make click event register for square
+
+15.Have a game object
+16.Game needs to set player turn
+17.Square needs to set based on game object turn variable
+18.Game first turn is player 1 ('x')
+
 DONE THOSE^^^
+19.Game needs to have logic for winning
 
 
 
