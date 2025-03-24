@@ -10,15 +10,16 @@
   }
 })();
 (function () {
-  let turn = "X";
+  let turnCount = 0;
+
   // Click Event
   const boardElement = document.querySelector("#board");
   boardElement.addEventListener("click", (e) => {
     const target = e.target;
     if (target.classList.contains("board-square")) {
       if (target.dataset.value === "") {
-        target.dataset.value = turn;
-        turn = turn === "X" ? "O" : "X";
+        turnCount++;
+        target.dataset.value = turnCount % 2 === 1 ? "X" : "O";
       }
     }
   });

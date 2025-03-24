@@ -21,8 +21,10 @@
 
 19.Font icons for x and o
 20.Clicking square shows x or o
+
+21.Game needs to have turnCount
 DONE THOSE^^^
-20.Game needs to have logic for winning
+20.Game needs to have array for winning
 
 
 
