@@ -23,8 +23,11 @@
 20.Clicking square shows x or o
 
 21.Game needs to have turnCount
+22.Game needs to have array for winning
+23.Game needs to check winner by comparing it with the array of elements
+24.game needs to detect ending game
+25. Game should display winner or draw at end
 DONE THOSE^^^
-20.Game needs to have array for winning
 
 
 
