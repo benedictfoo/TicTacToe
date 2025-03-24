@@ -27,7 +27,8 @@
 23.Game needs to check winner by comparing it with the array of elements
 24.game needs to detect ending game
 25. Game should display winner or draw at end
+26.Style the frontend winning message and also link it to logic
+27.Initializing game works
 DONE THOSE^^^
 
-26.Style the frontend winning message and also link it to logic
 

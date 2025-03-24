@@ -9,9 +9,8 @@
     boardElement.appendChild(boardSquare);
   }
 })();
-(function () {
+const createGame = function () {
   let turnCount = 0;
-  // set message
 
   // Click Event
   const boardElement = document.querySelector("#board");
@@ -40,9 +39,6 @@
   ];
   // function to check if won
   function checkIfWon() {
-    // winArray.forEach(condition=>{
-    //   if()
-    // })
     const squares = document.querySelectorAll(".board-square");
     function getSquareValue(oneIndex) {
       return squares[oneIndex - 1].dataset.value;
@@ -59,12 +55,29 @@
         first === second &&
         first === third
       ) {
+        initialize();
         return `Player ${first === "X" ? "X" : "O"} won!`;
       }
     }
     if (turnCount === 9) {
+      initialize();
       return "There is no winner...";
     }
     return `${turnCount % 2 === 0 ? "X" : "O"}'s turn.`;
   }
-})();
+  function initialize(firstTime) {
+    const gameStatusElement = document.querySelector(".game-status");
+    gameStatusElement.textContent = `X's turn.`;
+    turnCount = 0;
+    if (!firstTime) {
+      const boardSquares = document.querySelectorAll(".board-square");
+      boardSquares.forEach((square) => {
+        square.dataset.value = "";
+      });
+    }
+  }
+  return { initialize };
+};
+const game = createGame();
+
+game.initialize(true);
